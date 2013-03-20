@@ -1,0 +1,16 @@
+{
+    "name": "colloquy",
+    "version": "0.0.1",
+    "description": "virgilio colloquy server for instant messaging and data push",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "socket.io": "0.9"
+    },
+    "repository": "",
+    "author": "Andrea Campolonghi Giancarlo Pace",
+    "license": "BSD"
+}
