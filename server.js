@@ -15,6 +15,7 @@ io.on('connection', function (socket) {
 
     socket.on('server', function (data) {
         console.log("- data arrived on the socket queue");
+        console.log(data);
         command.execute(data);
     });
 
@@ -160,20 +161,16 @@ Storage.registerUser = function (socketId, p) {
     if (user === undefined || user == null) {
         console.info("- registering a not existing user", p.email);
         this.whois[socketId] = createUser(socketId, p);
-        console.log(this.whois);
         return true;
     } else if (user.disconnecting) {
         console.info("- recovering an existing user", user.email);
         delete this.whois[user.socketId];
-
         this.whois[socketId] = createUser(socketId, p);
-        console.log(this.whois);
         return false;
     } else {
         console.info("- registring a second record for an existing user", user.email);
         p['fullname'] = p['fullname'];
         this.whois[socketId] = createUser(socketId, p);
-        console.log(this.whois);
         return true;
     }
 
