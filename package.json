@@ -8,7 +8,8 @@
         "start": "node server.js"
     },
     "dependencies": {
-        "socket.io": "0.9"
+        "socket.io": "0.9",
+        "underscore": "1.4.4"
     },
     "repository": "",
     "author": "Andrea Campolonghi Giancarlo Pace",
