@@ -105,6 +105,11 @@ Command.prototype.chatMessage = function (payload) {
 
 Command.prototype.domNotification = function (payload) {
     var user = Storage.find(this.socket.id);
+    if (user === undefined) {
+        console.error("The socket id#" + this.socket.id + " is not present in the registered users");
+        console.error(payload);
+        return;
+    }
     this.socket.broadcast.emit(user.channel, Packet.domNotification(payload, user));
 };
 
